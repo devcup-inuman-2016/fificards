@@ -2,8 +2,13 @@ exports.config = {
   // See http://brunch.io/#documentation for docs.
   files: {
     javascripts: {
-      joinTo: "js/app.js"
+      joinTo: "js/app.js",
 
+      order: {
+        before: [
+          "node_modules/jquery/dist/jquery.js",
+        ]
+      },
       // To use a separate vendor.js bundle, specify two files path
       // http://brunch.io/docs/config#-files-
       // joinTo: {
@@ -22,6 +27,11 @@ exports.config = {
     stylesheets: {
       joinTo: "css/app.css",
       order: {
+        before: [
+          "css/utils/**",
+          "css/overrides/**",
+          "css/components/**"
+        ],
         after: ["web/static/css/app.css"] // concat app.css last
       }
     },
@@ -54,6 +64,20 @@ exports.config = {
     babel: {
       // Do not use ES6 compiler in vendor code
       ignore: [/web\/static\/vendor/]
+    },
+    sass: {
+      precision: 8,
+      options: {
+        includePaths: [
+          "node_modules/bootstrap-sass/assets/stylesheets/",
+          "node_modules/ionicons/dist/scss/"
+        ]
+      }
+    },
+    postcss: {
+      processors: [
+        require("autoprefixer")(["> 1%"])
+      ]
     }
   },
 
@@ -64,6 +88,13 @@ exports.config = {
   },
 
   npm: {
-    enabled: true
+    enabled: true,
+
+    globals: {
+      jQuery: "jquery",
+      $:  "jquery",
+      onmount: "onmount"
+    }
   }
 };
+
