@@ -22,7 +22,7 @@ config :fificards, Fificards.Endpoint,
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{web/views/.*(ex)$},
-      ~r{web/templates/.*(eex)$}
+      ~r{web/templates/.*(eex|pug)$}
     ]
   ]
 
@@ -36,8 +36,10 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :fificards, Fificards.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
   database: "fificards_dev",
   hostname: "localhost",
   pool_size: 10
+
+#config :ueberauth, Ueberauth.Strategy.Github.OAuth,
+  #client_id: System.get_env("GITHUB_CLIENT_ID"),
+  #client_secret: System.get_env("GITHUB_CLIENT_SECRET")
