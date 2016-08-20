@@ -8,7 +8,6 @@ defmodule Fificards.Repo.Migrations.CreateAction do
 
       add :commands, :text
 
-
       timestamps()
     end
 
