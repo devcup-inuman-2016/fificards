@@ -27,7 +27,7 @@ config :phoenix, :template_engines,
 
 config :ueberauth, Ueberauth,
   providers: [
-    github: {Ueberauth.Strategy.Github, []}
+    github: {Ueberauth.Strategy.Github, [default_scope: "user, user:email, gist"]}
   ]
 
 # Import environment specific config. This must remain at the bottom

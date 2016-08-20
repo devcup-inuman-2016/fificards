@@ -1,0 +1,1 @@
+<%= link "Sign in via Github", to: "/auth/github" %>

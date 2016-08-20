@@ -40,6 +40,6 @@ config :fificards, Fificards.Repo,
   hostname: "localhost",
   pool_size: 10
 
-#config :ueberauth, Ueberauth.Strategy.Github.OAuth,
-  #client_id: System.get_env("GITHUB_CLIENT_ID"),
-  #client_secret: System.get_env("GITHUB_CLIENT_SECRET")
+config :ueberauth, Ueberauth.Strategy.Github.OAuth,
+  client_id: "8aa9fc9371c8b950efdf",
+  client_secret: "4800a3d3ea5b81b889129641d56d1c1040d79b23"
